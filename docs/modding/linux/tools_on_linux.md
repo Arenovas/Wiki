@@ -50,12 +50,8 @@ Tools such as Hammer, HLMV and Faceposer can be run trivially using wine. Typica
 
 For Hammer:
 ```sh
-wine bin/win64/hammer.exe -winecompat
+wine bin/win64/hammer.exe
 ```
-
->[!NOTE]
-> `-winecompat` is completely optional for Hammer. It simply enables the Qt file browser dialog instead of using the native one provided by wine.
-> This flag does nothing in HLMV and Faceposer, as those tools have no Qt integration.
 
 Faceposer and HLMV both require the `-game` parameter to tell it which game to use. If running from the root of the game directory:
 ```sh
@@ -106,7 +102,7 @@ Run `winecfg` in a terminal, navigate to "Graphics" and adjust the DPI as desire
 
 This is a side effect of how the 2D viewports are rendered, when larger portions of the map are visible in the 2D viewports, Hammer will degrade in performance.
 
-If you're using Wine 11 you can disable winecompat by either removing `-winecompat` or enabling `-nowinecompat` depending on the version of Hammer being used which will resolve performance issues. However, this will introduce a single frame delay in your interactions in the viewports.
+If you're using Wine 11 you can disable winecompat by either removing `-winecompat` for Portal: Revolution or enabling `-nowinerenderfix` for P2:CE and Momentum Mod, which will resolve performance issues. However, this will introduce a single frame delay in your interactions in the viewports.
 Forcing Wine to use Wayland as opposed to X11 can fix that issue, however the model browser won't work.
 
-If any of those are undesirable, one can simply resort to minimizing the amount drawn in the viewports by either zooming in or shifting the views away from the map.
+If any of those are undesirable, one can simply resort to minimizing the amount drawn in the viewports by either zooming in or shifting the views away from the map. Disabling model rendering in the 2D viewports can also help improve performance a little as well.
